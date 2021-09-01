@@ -1,42 +1,28 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import "./App.css";
 import reactDom from 'react-dom'
-import home from './home'
+import Home from './Home'
 
 
-export default function App(){
-    let [searchTerm, setSearchTerm] = useState('');
-    const handleChange = (event) => {
-        setSearchTerm(event.target.value);
-    }
-
-    return (
-      <Router>
-      <main> 
-          <nav class="navbar navbar-dark">
-              <div>
-                  
-                      <h1>
-                          Ecommerce 
-                      </h1>
-              </div>
-          </nav> 
-          <Switch>
-          <Route path="/" exact component={Home} />
-        </Switch>   
-      </main>
-  
-  </Router>
-    )
-
+function App(){
+  return (
+    <div>
+      <Switch>
+        <Route path="/" exact component={HomeFunction} />
+      </Switch>
+    </div>
+  );
 }
 
 // Will become the home page for the app
-const Home = () => (
+const HomeFunction = () => (
     <Fragment>
       <div class="container-fluid">
-        <home />
+        <Home />
       </div>
     </Fragment>
   )
+
+
+
+  export default App;
