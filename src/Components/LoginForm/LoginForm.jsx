@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
 // This form is for adding new comments
-const LoginForm = ({ loginInfo }) => {
+const LoginForm = ({ makeLoginRequest }) => {
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        loginInfo(username, password);
+        makeLoginRequest(username, password);
         //setUser('');
     }
 
