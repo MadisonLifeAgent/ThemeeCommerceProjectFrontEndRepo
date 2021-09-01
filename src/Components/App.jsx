@@ -11,7 +11,7 @@ import NavBar from './NavBar/NavBar';
 function App(){
   return (
     // Routing to pages
-    <div>
+    <div className="App">
       <NavBar />
         <Switch>
           <Route path="/" exact component={HomeFunction} />
