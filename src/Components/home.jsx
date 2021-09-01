@@ -19,7 +19,6 @@ const Home = () => {
             "password": userLogin.password
         }
         // api call
-        
         loginInfo('https://localhost:44394/api/authentication/login', userInfo);
     }
 

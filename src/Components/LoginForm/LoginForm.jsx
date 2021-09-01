@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
 // This form is for adding new comments
-const LoginForm = ({ loginInfo }) => {
+const LoginForm = ({ LoginInfo }) => {
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        loginInfo(username, password);
+        LoginInfo(username, password);
         //setUser('');
     }
 
@@ -19,7 +19,7 @@ const LoginForm = ({ loginInfo }) => {
                 <input type="text" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} />
             </div>
 
-            <input type="submit" value="Submit Comment" />
+            <input type="submit" value="Submit Comment" className="btn btn-secondary mb-3" />
         </form>
     )
 }
