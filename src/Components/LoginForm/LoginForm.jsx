@@ -12,8 +12,8 @@ class LoginForm extends Component {
     
     async makeLoginRequest(){
         try{
-            let formData = {username: this.state.user.username, password: this.state.user.password}
-            let response = await axios.post('https://localhost:44394/api/authentication/login', formData);
+            const jwt = localStorage.getItem('token');
+            let response = await axios.post('https://localhost:44394/api/authentication/login', { headers: {Authorization: 'Bearer ' + jwt}});
             console.log(response.data)
             this.setState({
                 user: response.data
