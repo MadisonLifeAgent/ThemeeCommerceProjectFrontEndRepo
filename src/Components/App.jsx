@@ -93,15 +93,6 @@ class App extends Component {
 // }
 
 // calls home page
-<<<<<<< HEAD
-const HomeFunction = () => (
-    <Fragment>
-      <div class="container-fluid">
-        <Home />
-      </div>
-    </Fragment>
-  )
-=======
 // const HomeFunction = () => (
 //     <Fragment>
 //       <div class="container-fluid">
@@ -109,7 +100,6 @@ const HomeFunction = () => (
 //       </div>
 //     </Fragment>
 //   )
->>>>>>> 9a6cf048c88e5d6e9756076f56c8954320b47892
 
 
 

@@ -9,10 +9,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^5.1.0",
     "jwt-decode": "^3.1.2",
-<<<<<<< HEAD
     "package": "^1.0.1",
-=======
->>>>>>> 9a6cf048c88e5d6e9756076f56c8954320b47892
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
