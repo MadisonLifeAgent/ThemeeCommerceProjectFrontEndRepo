@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Switch, Link, Redirect, Search } from 'r
 import jwt_decode from 'jwt-decode'
 import NavBar from './NavBar/NavBar';
 import axios from 'axios';
+import LoginForm from './LoginForm/LoginForm';
 
 
 class App extends Component {
@@ -44,7 +45,7 @@ class App extends Component {
                 }
               }}
             /> 
-                 
+            <Route path='/login' component={LoginForm} />
             </Switch>
           </div>
         </div>
