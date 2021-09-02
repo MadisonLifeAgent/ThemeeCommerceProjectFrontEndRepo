@@ -1,29 +1,43 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 
 
 class LoginForm extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            username: '', 
-            password: ''
+            user: {},
+/*             username: '', 
+            password: '' */
          }
+    }
+
+    componentDidMount() {
+        const jwt = localStorage.getItem('token');
+        try{
+          const user = jwt_decode(jwt);
+          this.setState({
+            user
+          });
+        } catch {
+        
+        }
     }
     
     async makeLoginRequest(){
         try{
-            debugger;
+
             let formData = {username: this.state.username, password: this.state.password}
             let response = await axios.post('https://localhost:44394/api/authentication/login', formData);
-            console.log(response.data)
-            this.setState({
-                user: response.data
-            });
+            // set token
+            localStorage.setItem('token', response.data);
         }
         catch(ex){
             console.log(ex);
         }
+        debugger;
+        console.log(this.state.user);
     }
 
 
@@ -35,7 +49,7 @@ class LoginForm extends Component {
     }
 
     handleSubmit = (event) => {
-        event.preventDefault();
+        //event.preventDefault();
         this.makeLoginRequest()
     };
         
@@ -49,7 +63,7 @@ class LoginForm extends Component {
                  <input name="password" type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
              </div>
 
-             <input type="submit" value="Submit Comment" className="btn btn-secondary mb-3" />
+             <input type="submit" value="Submit" className="btn btn-secondary mb-3" />
          </form>
          );
     }

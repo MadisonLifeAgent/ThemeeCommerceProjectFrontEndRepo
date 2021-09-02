@@ -1,10 +1,11 @@
 // React Imports
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch, Link, Redirect, Search } from 'react-router-dom';
-import jwt_decode from 'jwt-decode'
+import {BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
+import jwt_decode from 'jwt-decode';
 import NavBar from './NavBar/NavBar';
 import axios from 'axios';
 import LoginForm from './LoginForm/LoginForm';
+import Search from './Search/Search';
 
 
 class App extends Component {
@@ -25,10 +26,6 @@ class App extends Component {
     } catch {
     
     }
-
-
-
-
   }
     render() { 
       const user = this.state.user;
@@ -41,11 +38,12 @@ class App extends Component {
                 if (!user){
                   return <Redirect to="/login" />
                 } else {
-                  // return <Search {...props} user= {user} />
+                  return <Search {...props} user={user} />
                 }
               }}
             /> 
-            <Route path='/login' component={LoginForm} />
+              <Route path='/login' component={LoginForm} />
+              <Route path='/search' component={Search} />
             </Switch>
           </div>
         </div>

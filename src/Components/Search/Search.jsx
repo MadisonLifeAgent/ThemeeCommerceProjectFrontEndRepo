@@ -1,28 +1,34 @@
-import React from 'react'
-import {useHistory} from 'react-router-dom'
-import {useSelector, useDispatch} from 'react-redux'
-import { SearchOutlined } from '@ant-design/icons'
+import React from 'react';
+import axios from 'axios';
 
-function Search() {
-  const dispatch = useDispatch()
-  const {search} = useSelector((state)=>({...state}))
-  const {text} = search
-  const history = useHistory()
-  const handleChange=(e)=>{
-dispatch({type:"SEARCH_QUERY", payload:{text:e.target.value}})
+const Search = (props) => {
+  const user = props.user;
+  
+
+  async function getAllProducts(){
+    try{
+        let response = await axios.get('https://localhost:44394/api/product/');
+        this.setState({
+            products: response.data
+        });
+        console.log(this.state.products.productName[0]);
+    }
+    catch(ex){
+        console.log(ex);
+    }
   }
-  const handleSubmit=(e)=>{
-    e.preventDefault()
-    history.push(`/shop?${text}`)
-  }
-  return (
-    <form className="form-inline my-2 my-lg-0" onSubmit={handleSubmit}>
-      <input type="search"value={text} onChange={handleChange}className="form-control mr-sm-2" placeholder="Search"/>
-      <SearchOutlined onClick={handleSubmit} style={{cursor: 'pointer'}}/>
-    </form>
-  )
+  
+    return (
+      <div>
+        <h2>{getAllProducts}</h2>
+
+        </div>
+
+    );
+
+
+  
 }
 
 
-
-export default Search
+export default Search;
