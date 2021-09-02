@@ -6,13 +6,15 @@ class LoginForm extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            user: {username: '', password: ''}
+            username: '', 
+            password: ''
          }
     }
     
     async makeLoginRequest(){
         try{
-            let formData = {username: this.state.user.username, password: this.state.user.password}
+            debugger;
+            let formData = {username: this.state.username, password: this.state.password}
             let response = await axios.post('https://localhost:44394/api/authentication/login', formData);
             console.log(response.data)
             this.setState({
@@ -42,9 +44,9 @@ class LoginForm extends Component {
         return ( 
             <form onSubmit={this.handleSubmit}>
             <div>
-                 <input type="text" placeholder="Username" value={this.username} onChange={this.handleChange} />
+                 <input name="username" type="text" placeholder="Username" value={this.state.username} onChange={this.handleChange} />
 
-                 <input type="password" placeholder="Password" value={this.password} onChange={this.handleChange} />
+                 <input name="password" type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
              </div>
 
              <input type="submit" value="Submit Comment" className="btn btn-secondary mb-3" />
