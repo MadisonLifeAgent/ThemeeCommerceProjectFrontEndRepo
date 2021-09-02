@@ -19,7 +19,7 @@ const LoginForm = ({ makeLoginRequest }) => {
                 <input type="text" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} />
             </div>
 
-            <input type="submit" value="Submit Comment" />
+            <input type="submit" value="Submit Comment" className="btn btn-secondary mb-3" />
         </form>
     )
 }
