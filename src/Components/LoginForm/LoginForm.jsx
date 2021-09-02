@@ -31,13 +31,13 @@ class LoginForm extends Component {
             let formData = {username: this.state.username, password: this.state.password}
             let response = await axios.post('https://localhost:44394/api/authentication/login', formData);
             // set token
-            localStorage.setItem('token', response.data);
+                localStorage.setItem('token', response.data);
+                window.location = '/';
+                console.log("Good call");
         }
         catch(ex){
             console.log(ex);
         }
-        debugger;
-        console.log(this.state.user);
     }
 
 
@@ -49,7 +49,7 @@ class LoginForm extends Component {
     }
 
     handleSubmit = (event) => {
-        //event.preventDefault();
+        event.preventDefault();
         this.makeLoginRequest()
     };
         
