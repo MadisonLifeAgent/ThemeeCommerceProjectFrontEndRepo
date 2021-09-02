@@ -34,3 +34,6 @@ export const Search = ({ onSearch, className }) => {
     </form>
   );
 };
+
+
+export default Search
