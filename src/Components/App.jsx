@@ -1,7 +1,7 @@
 // React Imports
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch, Link, Redirect, Search } from 'react-router-dom';
-import { jwtDecode } from 'react-jwt';
+import jwt_decode from 'jwt-decode'
 import NavBar from './NavBar/NavBar';
 import axios from 'axios';
 
@@ -17,7 +17,7 @@ class App extends Component {
   componentDidMount() {
     const jwt = localStorage.getItem('token');
     try{
-      const user = jwtDecode(jwt);
+      const user = jwt_decode(jwt);
       this.setState({
         user
       });
