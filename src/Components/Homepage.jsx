@@ -21,19 +21,6 @@ const Home = (props) => {
         setUser(response.data)
     }
 
-    // set userlogin
-    // debugger;
-    // const loginInfo = (userLogin) => {
-    //     setUser(userLogin);
-
-    //     const userInfo = {
-    //         "username": userLogin.username,
-    //         "password": userLogin.password
-    //     }
-    //     // api call
-        
-    //     loginInfo('https://localhost:44394/api/authentication/login', userInfo);
-    
 
 
     return ( 
