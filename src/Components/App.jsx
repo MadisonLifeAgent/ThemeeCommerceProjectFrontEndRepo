@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import reactDom from 'react-dom'
 
 // Component Imports
-import Home from './Home'
+import Home from './Home';
 import NavBar from './NavBar/NavBar';
 
 
