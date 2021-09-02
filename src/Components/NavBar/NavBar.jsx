@@ -2,13 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-function NavBar() {
+const NavBar = ({user}) => {
     return (
-        <nav>
-            <Link to='/'>
-                <button>Shamazon.com</button>
-            </Link>
-        </nav>
+        <div>
+            {user && <h4> Welcome </h4>}
+            <ul>
+                <li>
+                    <Link to='/search'>SearchPage</Link>
+                </li>
+            </ul>
+        </div>
     )
 }
 
