@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import reactDom from 'react-dom'
 
 // Component Imports
-import Home from './Home'
+import Homepage from './Homepage'
 import NavBar from './NavBar/NavBar';
 
 
@@ -24,7 +24,7 @@ function App(){
 const HomeFunction = () => (
     <Fragment>
       <div class="container-fluid">
-        <Home />
+        <Homepage />
       </div>
     </Fragment>
   )
