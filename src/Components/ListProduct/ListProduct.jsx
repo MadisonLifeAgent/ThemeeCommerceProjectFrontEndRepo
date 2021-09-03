@@ -16,15 +16,23 @@ class ListProduct extends Component {
     }
 
     async addProductRequest(product){
-         
+        product = {
+            productName: product.productName,
+            productDescription: product.productDescription,
+            productPrice: product.productPrice,
+            categoryId: product.categoryId
+        }
+        debugger;
+        console.log(product)
         let response = await axios.post('https://localhost:44394/api/product/add', product)
         
         console.log(response.data)
+        
     }
     
     handleChange = (event) => {
         this.setState({
-            [event.target.name]: event.target.value,
+            [event.target.name]: event.target.type === "number"? event.target.valueAsNumber : event.target.value
         });
     }
 
@@ -43,9 +51,9 @@ class ListProduct extends Component {
             <div>
                 <form onSubmit={(event) => this.handleSubmit(event)}>
                     <input name="productName" type="text" placeholder="Product Name" value={productName} onChange={this.handleChange} /> <br></br>
-                    <input name="productPrice" type="int" placeholder="Price" value={productPrice} onChange={this.handleChange} /> <br></br>
+                    <input name="productPrice" type="number" placeholder="Price" value={productPrice} onChange={this.handleChange} /> <br></br>
                     <input name="productDescription" type="text" placeholder="Description" value={productDescription} onChange={this.handleChange} /> <br></br>
-                    <input name="categoryId" type="int" placeholder="CategoryId" value={categoryId} onChange={this.handleChange} /> <br></br>
+                    <input name="categoryId" type="number" placeholder="CategoryId" value={categoryId} onChange={this.handleChange} /> <br></br>
                     <input name="category" type="text" placeholder="Category" value={category} onChange={this.handleChange} /> <br></br>
                     <button type="submit">Submit</button>
                 </form>
