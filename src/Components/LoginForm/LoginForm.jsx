@@ -18,9 +18,6 @@ class LoginForm extends Component {
             let response = await axios.post('https://localhost:44394/api/authentication/login', userInfo);
             // set token
             localStorage.setItem('token', response.data.token);
-            console.log("token " + localStorage);
-            console.log(this.state);
-            debugger;
             window.location = '/';
             return localStorage;
         }

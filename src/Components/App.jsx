@@ -4,15 +4,13 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import NavBar from './NavBar/NavBar';
 import LoginForm from './LoginForm/LoginForm';
-import Search from './Search/Search.jsx';
+import Search from './Search/Search';
 
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        username: '', 
-        password: ''
       }
   }
 
@@ -20,7 +18,6 @@ class App extends Component {
   componentDidMount() {
     // gets the user token
     const jwt = localStorage.getItem('token');
-    //console.log(jwt);
     try{
       const user = jwt_decode(jwt);
       console.log(user);
@@ -28,6 +25,7 @@ class App extends Component {
         user
       });
     } catch {
+
     }
   }
 
@@ -39,19 +37,21 @@ class App extends Component {
           <NavBar user={user} />
             <div>
               <Switch>
-                <Route path ='/search' render={props => {
-                  if (!user){
-                    return <Redirect to="/login" />
-                  } else {
-                    return <Search {...props} user={user} />
-                  }
-                }} /> 
+                <Route path='/search'
+                  render={props => {
+                    if (!user){
+                      return <Redirect to="/login" />
+                    } else {
+                      return <Search {...props} user={this.state.user} />
+                    }
+                  }}
+                />
                 <Route path='/login' component={LoginForm} props="props" />
-                <Route path='/search' component={Search} />
               </Switch>
             </div>
         </div>
        );
     }
   }
+  
   export default App;

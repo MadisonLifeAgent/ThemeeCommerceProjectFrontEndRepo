@@ -5,19 +5,24 @@ import { Link } from 'react-router-dom';
 const NavBar = ({user}) => {
     return (
         <div>
-            <Link to='/'><h4>Shamazon.com</h4></Link>
-            <ul>
-                <li>
+{/*             {user && <h3>Welcome {user.username}</h3>}
+ */}            <button>
+                <Link to='/'>
+                    <h2>Shamazon.com</h2>
+                </Link>
+            </button>
+            <dl>
+                <dd>
                     <Link to='/search'>SearchPage</Link>
-                </li>
+                </dd>
                 {!user &&
                     <React.Fragment>
-                        <li>
+                        <dd>
                             <Link to="/login">Login</Link>
-                        </li>
+                        </dd>
                     </React.Fragment>
                 }
-            </ul>
+            </dl>
         </div>
     )
 }
