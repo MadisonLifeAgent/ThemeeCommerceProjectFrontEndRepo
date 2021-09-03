@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SearchResults from './SearchResults';
 import axios from 'axios';
+import DisplaySearch from '../DisplaySearch/DisplaySearch';
 
 
 class Search extends Component {
@@ -20,12 +20,11 @@ class Search extends Component {
       
       let response = await axios.get(`https://localhost:44394/api/product/searchresults/${searchTerm}`);
       // set results
-      if (response){
-          let results = response.data;
-          console.log("good api call");
-          console.log(response.data);
-          return results;
-        }
+      this.setState({
+        products: response.data
+        
+      }) 
+      console.log(this.state.products)
     }
     catch(ex){
         console.log("bad call");
@@ -57,8 +56,7 @@ class Search extends Component {
             </form>
         </div>
 
-        {/* Displays search form and results
-        <SearchResults getSearchResults={this.getSearchResults} /> */}
+        <DisplaySearch results={this.state.products} />
       </div>
     );
   }
