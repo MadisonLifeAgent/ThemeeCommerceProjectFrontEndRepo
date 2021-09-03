@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Logout from '../Logout/Logout';
 
 // display navbar based on user login status
 const NavBar = ({user}) => {
     return (
         <div>
-{/*             {user && <h3>Welcome {user.username}</h3>}
- */}            <button>
+{/*     {user && <h3>Welcome {user.username}</h3>}
+ */}        <button>
                 <Link to='/'>
                     <h2>Shamazon.com</h2>
                 </Link>
@@ -14,6 +15,9 @@ const NavBar = ({user}) => {
             <dl>
                 <dd>
                     <Link to='/search'>SearchPage</Link>
+                </dd>
+                <dd>
+                    <Logout />
                 </dd>
                 {!user &&
                     <React.Fragment>
