@@ -5,6 +5,7 @@ import jwt_decode from 'jwt-decode';
 import NavBar from './NavBar/NavBar';
 import LoginForm from './LoginForm/LoginForm';
 import Search from './Search/Search';
+import ListProduct from './ListProduct/ListProduct';
 
 
 class App extends Component {
@@ -47,6 +48,7 @@ class App extends Component {
                   }}
                 />
                 <Route path='/login' component={LoginForm} props="props" />
+                <Route path='/add' component={ListProduct} />
               </Switch>
             </div>
         </div>

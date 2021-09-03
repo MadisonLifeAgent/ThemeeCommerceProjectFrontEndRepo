@@ -19,6 +19,9 @@ const NavBar = ({user}) => {
                 <dd>
                     <Logout />
                 </dd>
+                <dd>
+                    <Link to='/add'>List Product</Link>
+                </dd>
                 {!user &&
                     <React.Fragment>
                         <dd>
