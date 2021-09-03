@@ -1,5 +1,7 @@
 import React from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import DisplayProduct from '../DisplayProduct/DisplayProduct';
+import { Route, Link } from 'react-router-dom';
 
 
 const DisplaySearch = (props) => {
@@ -18,7 +20,8 @@ const DisplaySearch = (props) => {
                         {product.productName}
                         {product.productPrice}
                         {product.productDescription}
-                    </ListGroupItem>
+                        <button><Route path={`/product/${product.productName}`} component={DisplayProduct} product={product} /><Link to={`/product/${product.productName}`}>View Product</Link></button>
+                        </ListGroupItem>
 
            </div>
        )
