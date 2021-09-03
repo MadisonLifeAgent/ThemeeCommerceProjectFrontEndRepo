@@ -5,7 +5,6 @@ const DisplayProduct = (props) => {
     console.log(product.productName)
     return (
         <div>
-            <h1>Hello</h1>
             <h2>{product.productName}</h2>
         </div>
     )

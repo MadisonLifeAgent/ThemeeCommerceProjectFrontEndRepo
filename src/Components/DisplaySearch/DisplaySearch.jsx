@@ -1,7 +1,5 @@
 import React from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
-import DisplayProduct from '../DisplayProduct/DisplayProduct';
-import { Route, Link } from 'react-router-dom';
 
 
 const DisplaySearch = (props) => {
@@ -14,14 +12,29 @@ const DisplaySearch = (props) => {
            productDescription: item.productDescription
        };
 
+    function displayProduct(productName) {
+        var popup = document.getElementById("productPopup");
+        popup.classList.toggle("show");
+
+    }
+
        return (
            <div>
                     <ListGroupItem>
                         {product.productName}
                         {product.productPrice}
                         {product.productDescription}
-                        <button><Route path={`/product/${product.productName}`} component={DisplayProduct} product={product} /><Link to={`/product/${product.productName}`}>View Product</Link></button>
-                        </ListGroupItem>
+                        <div class="accordion" id="accordionBg">
+                            <div class="accordion-item">
+                                <h4 class="accordion-header" id="viewMore">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">View More Product Details</button>
+                                </h4>
+                                <div id="collapseOne" class="accordion-collapse collapse close" aria-labelledby="headingOne" data-bs-parent="#accordionBg">
+                                    <p>{product.productName}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </ListGroupItem>
 
            </div>
        )
