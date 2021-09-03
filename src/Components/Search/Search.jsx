@@ -17,7 +17,7 @@ class Search extends Component {
   async getSearchResults(searchInfo){
     try{
       let searchTerm = searchInfo.searchTerm;
-
+      
       let response = await axios.get(`https://localhost:44394/api/product/searchresults/${searchTerm}`);
       // set results
       if (response){
@@ -51,7 +51,7 @@ class Search extends Component {
 
         {/* Displays search form */}
         <div>
-            <form>
+            <form onSubmit = {this.handleSubmit}>
               <input name="searchTerm" type="text" placeholder="Search" value={this.state.searchTerm} onChange={this.handleChange} />
               <input type="submit" value="Submit" />
             </form>
