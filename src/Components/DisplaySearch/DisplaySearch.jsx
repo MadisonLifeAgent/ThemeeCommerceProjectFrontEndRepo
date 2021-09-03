@@ -22,7 +22,7 @@ const DisplaySearch = (props) => {
                     <ListGroupItem>
                         <p>{product.productName}, ${product.productPrice}</p>
 
-                        {/* Show product details in a dropdown display*/}
+                        {/* Show product details */}
                         <div class="accordion" id="accordionBg">
                             <div class="accordion-item">
                                 <h4 class="accordion-header" id="viewMore">

@@ -56,7 +56,7 @@ class Search extends Component {
             </form>
         </div>
 
-        <DisplaySearch results={this.state.products} />
+        <DisplaySearch results={this.state} />
       </div>
     );
   }
