@@ -24,6 +24,7 @@ class Search extends Component {
         products: response.data
         
       }) 
+      console.log(this.state.products)
     }
     catch(ex){
         console.log("bad call");
