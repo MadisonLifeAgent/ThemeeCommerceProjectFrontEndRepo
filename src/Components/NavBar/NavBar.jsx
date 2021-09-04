@@ -13,25 +13,30 @@ const NavBar = ({user}) => {
                 </Link>
             </button>
             <dl>
-                <dd>
-                    <Link to='/search'>SearchPage</Link>
-                </dd>
-                <dd>
-                    <Logout />
-                </dd>
-                <dd>
-                    <Link to='/add'>List Product</Link>
-                </dd>
-                {!user &&
+            {!user &&
                     <React.Fragment>
                         <dd>
                             <Link to="/login">Login</Link>
                         </dd>
+                        <dd>
+                            <Link to="/register">Register</Link>
+                        </dd>
                     </React.Fragment>
                 }
-                <dd>
-                    <Link to="/register">Register</Link>
-                </dd>
+                {user &&
+                    <React.Fragment>
+                        <dd>
+                            <Link to='/search'>SearchPage</Link>
+                        </dd>
+                        <dd>
+                            <Link to='/add'>List Product</Link>
+                        </dd>
+                        <dd>
+                            <Logout />
+                        </dd>
+                    </React.Fragment>
+                }
+                
             </dl>
         </div>
     )
