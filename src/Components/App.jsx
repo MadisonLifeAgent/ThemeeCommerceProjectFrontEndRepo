@@ -52,7 +52,9 @@ class App extends Component {
                 <Route path='/login' component={LoginForm} props="props" />
                 <Route path='/add' component={ListProduct} />
                 <Route path='/register' component={RegisterForm} />
-                <Route path='/shoppingcart' component={ShoppingCart} />
+                <Route path='/shoppingcart'  render={props => {
+                  return <ShoppingCart {...props} user={this.state.user} />
+                }} />
               </Switch>
             </div>
         </div>
