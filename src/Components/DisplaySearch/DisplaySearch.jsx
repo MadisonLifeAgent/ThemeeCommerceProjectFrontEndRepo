@@ -1,16 +1,28 @@
+import axios from 'axios';
 import React from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 
 const DisplaySearch = (props) => {
    const searchResults = props.results;
-    
+
+
    const showProducts = searchResults.products.map((item) => {
        const product = {
            productName: item.productName,
            productPrice: item.productPrice,
-           productDescription: item.productDescription
+           productDescription: item.productDescription,
        };
+
+
+    async function getProductRatingReview(productId) {
+        const response = await axios.get(`https://localhost:44394/api/review/${productId}`);
+        console.log(response.data);
+        return response.data;
+    }
+
+    // get rating and review for product
+    const productRatingReview = getProductRatingReview(item.productId);
 
        // render the page based on searchterm and results
         return (
@@ -28,10 +40,9 @@ const DisplaySearch = (props) => {
                             <div id="collapseOne" class="accordion-collapse collapse close" aria-labelledby="headingOne" data-bs-parent="#accordionBg">
                                 <p>Product Category: {product.CategoryName}</p>
                                 <p>Product Description:  {product.productDescription}</p>
-                                <p>Reviews and Ratings:</p>
                                 <dl>
-                                    <dt></dt>
-                                        <dd></dd>
+                                    <dt>Review:</dt>
+                                        <dd>{productRatingReview.reviewBody}</dd>
                                 </dl>
                             </div>
                         </div>
