@@ -32,6 +32,9 @@ const NavBar = ({user}) => {
                             <Link to='/add'>List Product</Link>
                         </dd>
                         <dd>
+                            <Link to='/shoppingcart'>Shopping Cart</Link>
+                        </dd>
+                        <dd>
                             <Logout />
                         </dd>
                     </React.Fragment>
