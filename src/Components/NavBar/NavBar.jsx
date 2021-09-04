@@ -29,6 +29,9 @@ const NavBar = ({user}) => {
                         </dd>
                     </React.Fragment>
                 }
+                <dd>
+                    <Link to="/register">Register</Link>
+                </dd>
             </dl>
         </div>
     )

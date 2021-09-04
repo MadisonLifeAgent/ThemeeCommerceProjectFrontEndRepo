@@ -6,6 +6,7 @@ import NavBar from './NavBar/NavBar';
 import LoginForm from './LoginForm/LoginForm';
 import Search from './Search/Search';
 import ListProduct from './ListProduct/ListProduct';
+import RegisterForm from './Register/RegisterForm';
 
 
 class App extends Component {
@@ -49,6 +50,7 @@ class App extends Component {
                 />
                 <Route path='/login' component={LoginForm} props="props" />
                 <Route path='/add' component={ListProduct} />
+                <Route path='/register' component={RegisterForm} />
               </Switch>
             </div>
         </div>
