@@ -7,6 +7,7 @@ import LoginForm from './LoginForm/LoginForm';
 import Search from './Search/Search';
 import ListProduct from './ListProduct/ListProduct';
 import RegisterForm from './Register/RegisterForm';
+import ShoppingCart from './ShoppingCart/ShoppingCart';
 
 
 class App extends Component {
@@ -51,6 +52,7 @@ class App extends Component {
                 <Route path='/login' component={LoginForm} props="props" />
                 <Route path='/add' component={ListProduct} />
                 <Route path='/register' component={RegisterForm} />
+                <Route path='/shoppingcart' component={ShoppingCart} />
               </Switch>
             </div>
         </div>
