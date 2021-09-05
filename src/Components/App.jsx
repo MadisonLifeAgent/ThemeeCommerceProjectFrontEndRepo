@@ -23,7 +23,6 @@ class App extends Component {
     const jwt = localStorage.getItem('token');
     try{
       const user = jwt_decode(jwt);
-      console.log(user);
       this.setState({
         user
       });
@@ -32,7 +31,7 @@ class App extends Component {
     }
   }
 
-    // what renders to the page
+    // what renders to the page based on login status
     render() { 
       const user = this.state.user;
       return ( 

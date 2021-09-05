@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import DisplaySearch from '../DisplaySearch/DisplaySearch';
+import DisplaySearchResults from '../DisplaySearchResults/DisplaySearchResults';
 
 
 class Search extends Component {
@@ -24,7 +24,6 @@ class Search extends Component {
         products: response.data
         
       }) 
-      console.log(this.state.products)
     }
     catch(ex){
         console.log("bad call");
@@ -46,17 +45,14 @@ class Search extends Component {
   render() {
     return(
       <div>
-      <h2>Hello {this.state.user.username}</h2>
-
-        {/* Displays search form */}
-        <div>
-            <form onSubmit = {this.handleSubmit}>
-              <input name="searchTerm" type="text" placeholder="Search" value={this.state.searchTerm} onChange={this.handleChange} />
-              <input type="submit" value="Submit" />
-            </form>
-        </div>
-
-        <DisplaySearch results={this.state} />
+          {/* Displays search form */}
+          <div>
+              <form onSubmit = {this.handleSubmit}>
+                <input name="searchTerm" type="text" value={this.state.searchTerm} onChange={this.handleChange} />
+                <input type="submit" value="Search" />
+              </form>
+          </div>
+        <DisplaySearchResults results={this.state} />
       </div>
     );
   }
