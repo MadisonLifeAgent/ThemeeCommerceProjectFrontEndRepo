@@ -3,18 +3,29 @@ import React from 'react';
 const DisplayProduct = (props) => {
     const productsInCart = props.productsInCart;
 
-    const getCartDetails = productsInCart.map((item) => {
+    const cartDetails = productsInCart.map((item) => {
         const details = {
             productId: item.productId,
+            productName: item.product.productName,
+            productPrice: item.product.productPrice,
             productQuantity: item.quantity,
         };
-        console.log(details.productId);
-        console.log("quantity: " + details.productQuantity);
-    })
-    return (
+
+        return (
+            <div>
+                <dl class="border">
+                    <dt>Product Name: {details.productName}</dt>
+                        <dd>Price: ${details.productPrice}</dd>
+                        <dd>Quantity: {details.productQuantity}</dd>
+                </dl>
+            </div>
+        )
+    });
+    return(
         <div>
-            Items go here
+            {cartDetails}
         </div>
     )
+    
 }
 export default DisplayProduct;

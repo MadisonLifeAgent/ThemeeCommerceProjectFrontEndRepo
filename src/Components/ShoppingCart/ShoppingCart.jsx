@@ -8,14 +8,11 @@ class ShoppingCart extends Component {
         this.state = { 
             user: props.user,
             productsInCart: [],
-//            productDetails: [],
          }
     }
     
-
     componentDidMount() {
         this.getEntireCart(this.state.user.id);
-        this.getSingleProduct(this.state.productsInCart);
     }
     
     //GET requires id(user) use stringconcat
@@ -27,36 +24,17 @@ class ShoppingCart extends Component {
             this.setState({
                 productsInCart: response.data,
             })
-            console.log(this.state.productsInCart);
         }
         catch(ex){
             console.log(ex)
         }
     }
     
-    
-    async getSingleProduct(productId){
-        const productIds = productId.productId
-        console.log(productId)
-        for (const id in productIds){
-            let response = await axios.get(`https://localhost:44394/api/product/${id}`)
-            console.log(response.data)
-            this.setState({
-                productDetails: response.data
-            })
-        }       
-    }
-
-    
     render() { 
         return ( 
             <div>
                 <h1> {this.state.user.username}'s Shopping Cart </h1>
-                <ul>
-                    <li>
-                        <DisplayProduct productsInCart={this.state.productsInCart} />
-                    </li>
-                </ul>
+                    <DisplayProduct productsInCart={this.state.productsInCart} />
             </div>
          );
     }
