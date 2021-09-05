@@ -8,26 +8,26 @@ class ShoppingCart extends Component {
         this.state = { 
             user: props.user,
             productsInCart: [],
-            productDetails: []
+//            productDetails: [],
          }
-         
     }
     
 
     componentDidMount() {
-        this.getEntireCart(this.state.user.id)
-        this.getSingleProduct(this.state.productsInCart)
+        this.getEntireCart(this.state.user.id);
+        this.getSingleProduct(this.state.productsInCart);
     }
     
     //GET requires id(user) use stringconcat
     async getEntireCart(id){
         
         try{
-            let response = await axios.get(`https://localhost:44394/api/shoppingcart/${id}`)
-            console.log(response.data)
+            let response = await axios.get(`https://localhost:44394/api/shoppingcart/${id}`);
+            console.log(response.data);
             this.setState({
-                productsInCart: response.data
+                productsInCart: response.data,
             })
+            console.log(this.state.productsInCart);
         }
         catch(ex){
             console.log(ex)
@@ -44,24 +44,17 @@ class ShoppingCart extends Component {
             this.setState({
                 productDetails: response.data
             })
-        }
-            
-        
-            
-            
-            
-        
-        
+        }       
     }
 
     
     render() { 
         return ( 
             <div>
-                <h1> {this.state.user.id} </h1>
+                <h1> {this.state.user.username}'s Shopping Cart </h1>
                 <ul>
                     <li>
-                        
+                        <DisplayProduct productsInCart={this.state.productsInCart} />
                     </li>
                 </ul>
             </div>
