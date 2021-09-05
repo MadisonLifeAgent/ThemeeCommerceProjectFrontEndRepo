@@ -1,24 +1,33 @@
 import React from 'react';
+import axios from 'axios';
 
-function Reviews (props) {
-    const product = props.product;
 
-    const productId = product.productId;
+const Reviews = (props) => {
+    const productId = props.productId;
 
-    // get ratings and reviews
-    let productRatingReviews = props.getProductRatingReview(productId);
+    async function getProductRatingReview(productId) {
+        console.log(productId);
+        try {
+            let response = await axios.get(`https://localhost:44394/api/review/${productId}`);
+            return response.data;
+        } catch (ex) {
+            console.log("API call failed");
+        }
+    }
+
+    const reviews = getProductRatingReview(productId);
 
     // map the ratings and reviews so they can be displayed with each product
-    const showReviewsRatings = productRatingReviews.reviewBody.map((item) => {
-        const rating = {
+    const showReviews = reviews.map((item) => {
+        const review = {
             rating: item.rating,
             reviewBody: item.reviewBody,
         };
 
         return (
             <dl>
-                <dt>{rating.rating}</dt>
-                <dd>{rating.reviewBody}</dd>
+                <dt>{review.rating}</dt>
+                <dd>{review.reviewBody}</dd>
             </dl>
         )
     });
@@ -27,7 +36,7 @@ function Reviews (props) {
         <div>
             {/* display review and ra details */}
             <h3>Product Reviews/Ratings</h3>
-                {showReviewsRatings}
+                {showReviews}
         </div>
     );
 }

@@ -11,7 +11,6 @@ const DisplaySearchResults = (props) => {
            entireProduct: item,
         };
 
-
         // render the page based on searchterm and results
         return (
             <div>
