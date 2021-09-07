@@ -1,8 +1,7 @@
 // react imports
 import React, { useState, useEffect } from 'react';
-
-// component imports
 import axios from 'axios';
+
 
 // this hook gets the current user info
 const GetCurrentUser = (localStorage) => {

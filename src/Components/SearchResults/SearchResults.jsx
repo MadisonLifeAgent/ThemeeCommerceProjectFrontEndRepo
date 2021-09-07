@@ -1,4 +1,9 @@
 import React from 'react';
+import { Route, Link } from 'react-router-dom';
+
+import UseGetProductDetails from "../../Hooks/UseGetProductDetails";
+import ProductPage from '../Pages/ProductPage';
+
 
 const SearchResults = (props) => {
     const searchResults = props.searchResults;
@@ -17,7 +22,10 @@ const SearchResults = (props) => {
         return (
             <div>
                 <dl>
-                    <dt>Product Name: {product.productName}</dt>
+                    <Link to={`/product/${product.productId}`} product={product}>
+                        <Route path='/product/:productId' render={props => <ProductPage {...props} productId={product.productId} />} />
+                        <dt>Product Name: {product.productName}</dt>
+                    </Link>
                         <dd>Price:  {product.productPrice}</dd>
                         <dd>Category: {product.categoryName}</dd>
                         <dd>Description: {product.productDescription}</dd>

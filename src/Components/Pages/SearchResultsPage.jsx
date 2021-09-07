@@ -10,8 +10,6 @@ const SearchResultsPage = (props) => {
     // call the hook to get search results and store the results
     let [resultsData] = GetSearchResults(`https://localhost:44394/api/product/searchresults/${props.searchTerm}`);
 
-    console.log(resultsData);
-
     // useState to set the results
     let [searchResults, setSearchResults] = useState([]);
 

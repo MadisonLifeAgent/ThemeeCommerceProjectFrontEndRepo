@@ -14,6 +14,8 @@ import jwtDecode from 'jwt-decode';
 import RegisterForm from './Register/RegisterForm';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import ListProduct from './ListProduct/ListProduct';
+import ProductPage from './Pages/ProductPage';
+
 
 
 
@@ -86,6 +88,7 @@ class App extends Component {
                     <Route path="/search/:searchTerm" render={props => <SearchResultsPage {...props} searchTerm={this.state.searchTerm} /> } />
                     <Route path='/register' component={RegisterForm} />
                     <Route path='/add' component={ListProduct} />
+                    <Route path='/product/:productId' component={ProductPage} user={user}/>
 
                 </Switch>
 
