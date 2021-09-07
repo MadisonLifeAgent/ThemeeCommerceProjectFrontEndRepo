@@ -9,6 +9,7 @@ const DisplayProduct = (props) => {
             productName: item.product.productName,
             productPrice: item.product.productPrice,
             productQuantity: item.quantity,
+            userId: item.id
         };
 
         return (
@@ -17,6 +18,7 @@ const DisplayProduct = (props) => {
                     <dt>Product Name: {details.productName}</dt>
                         <dd>Price: ${details.productPrice}</dd>
                         <dd>Quantity: {details.productQuantity}</dd>
+                        <button className="btn btn-primary text-yellow" onClick={() => props.deleteProduct(details)}> DELETE  </button>
                 </dl>
             </div>
         )
