@@ -38,7 +38,7 @@ const SearchResultsPage = (props) => {
     else if (searchResults.length === 0) {
         return (
             <div>
-                <h3>No Results for "{props.searchTerm}"</h3>
+                <h3>Loading Results for "{props.searchTerm}"</h3>
             </div>
         )
     }
@@ -46,7 +46,7 @@ const SearchResultsPage = (props) => {
     else {
         return (
             <div>
-                <h3>Loading Results</h3>
+                <h3>No Results for "{props.searchTerm}"</h3>
             </div>
         )
     }
