@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import jwt_decode from 'jwt-decode';
 
 
 class DisplayProductDetails extends Component {
@@ -10,17 +12,18 @@ class DisplayProductDetails extends Component {
     }
 
     componentDidMount() {
-    }
-
-/*     async function getProductDetails(id){
+        // gets the user token
+        const jwt = localStorage.getItem('token');
         try{
-            let response = await axios.get(`https://localhost:44394/api/product/${id}`);
-            let productDetails = response.data;
-            return productDetails;
-        } catch(ex) {
-            console.log("api call failed");
+          const user = jwt_decode(jwt);
+          this.setState({
+            user
+          });
+        } catch {
+    
         }
-    } */
+      }
+
 
     render (){
         return(

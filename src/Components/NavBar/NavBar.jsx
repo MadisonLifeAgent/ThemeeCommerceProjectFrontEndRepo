@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import Logout from '../Logout/Logout';
 
 // display navbar based on user login status
@@ -26,13 +27,13 @@ const NavBar = ({user}) => {
                 {user &&
                     <React.Fragment>
                         <dd>
-                            <Link to='/search'>SearchPage</Link>
-                        </dd>
-                        <dd>
                             <Link to='/add'>List Product</Link>
                         </dd>
                         <dd>
                             <Link to='/shoppingcart'>Shopping Cart</Link>
+                        </dd>
+                        <dd>
+                            <Link to='/profile'>My Profile</Link>
                         </dd>
                         <dd>
                             <Logout />
@@ -46,3 +47,8 @@ const NavBar = ({user}) => {
 }
 
 export default NavBar;
+
+
+{/* <dd>
+<Link to='/search'>SearchPage</Link>
+</dd> */}

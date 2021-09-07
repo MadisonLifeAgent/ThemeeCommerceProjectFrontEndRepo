@@ -10,8 +10,7 @@ class ListProduct extends Component {
             productPrice: '',
             productDescription: '',
             categoryId: '',
-            category: ''
-            
+           
         }
     }
 
@@ -38,14 +37,14 @@ class ListProduct extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.addProductRequest(this.state)
+        this.addProductRequest(this.state);
+        window.location='/add';
     };
 
     render() { 
         const productName = this.state.productName;
         const productPrice = this.state.productPrice;
         const productDescription = this.state.productDescription;
-        const category = this.state.category;
         const categoryId = this.state.categoryId;
         return ( 
             <div>
@@ -54,7 +53,7 @@ class ListProduct extends Component {
                     <input name="productPrice" type="number" placeholder="Price" value={productPrice} onChange={this.handleChange} /> <br></br>
                     <input name="productDescription" type="text" placeholder="Description" value={productDescription} onChange={this.handleChange} /> <br></br>
                     <input name="categoryId" type="number" placeholder="CategoryId" value={categoryId} onChange={this.handleChange} /> <br></br>
-                    <input name="category" type="text" placeholder="Category" value={category} onChange={this.handleChange} /> <br></br>
+
                     <button type="submit">Submit</button>
                 </form>
             </div>

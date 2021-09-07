@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
+import jwt_decode from 'jwt-decode';
+
 import DisplaySearchResults from '../DisplaySearchResults/DisplaySearchResults';
+
+
 
 
 class Search extends Component {
@@ -9,9 +14,15 @@ class Search extends Component {
     this.state = {
       user: props.user,
       products: [],
-      category: '',
       searchTerm: '',
     }
+  }
+
+  
+  componentDidMount() {
+    // gets the user token
+      this.setState({
+      });  
   }
 
   async getSearchResults(searchInfo){
@@ -19,6 +30,7 @@ class Search extends Component {
       let searchTerm = searchInfo.searchTerm;
       
       let response = await axios.get(`https://localhost:44394/api/product/searchresults/${searchTerm}`);
+      console.log(response.data);
       // set results
       this.setState({
         products: response.data
@@ -38,23 +50,36 @@ class Search extends Component {
 
   handleSubmit = (event) => {
       event.preventDefault();
-      this.getSearchResults(this.state);
+      let data = this.getSearchResults(this.state);
+      this.setState({
+        products: data,
+      })
   };
 
 
   render() {
-    return(
-      <div>
-          {/* Displays search form */}
-          <div>
-              <form onSubmit = {this.handleSubmit}>
-                <input name="searchTerm" type="text" value={this.state.searchTerm} onChange={this.handleChange} />
-                <input type="submit" value="Search" />
-              </form>
+    if (this.state.products.length > 0) {
+      return (
+        <Route path='/searchresults' 
+          render={props => {
+            return <DisplaySearchResults {...props} info={this.state} /> }} />
+      )
+    }
+      return(
+        <div>
+            {/* Displays search form */}
+            <div>
+                <form onSubmit = {this.handleSubmit}>
+                  <input name="searchTerm" type="text" value={this.state.searchTerm} onChange={this.handleChange} />
+                  <input type="submit" value="Search" />
+                </form>
+            </div>
+  
+        
           </div>
-        <DisplaySearchResults results={this.state} />
-      </div>
-    );
+      );
+    
+
   }
 
   

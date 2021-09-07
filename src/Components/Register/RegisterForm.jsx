@@ -1,5 +1,7 @@
 import axios from 'axios';
-import React, {Component} from 'react';
+import React, {Component, Route, Link } from 'react';
+
+// component imports
 
 class RegisterForm extends Component {
     constructor(props) {
@@ -26,8 +28,9 @@ class RegisterForm extends Component {
         debugger;
         console.log(userInfo)
         try{
-            let response = await axios.post('https://localhost:44394/api/authentication', userInfo)
-            console.log(response.data)
+            let response = await axios.post('https://localhost:44394/api/authentication', userInfo);
+            console.log(response.data);
+            window.location = '/login';
         }
         catch(ex){
             console.log("bad call")
@@ -42,7 +45,7 @@ class RegisterForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.registerRequest(this.state)
+        this.registerRequest(this.state);
     };
 
 
@@ -64,6 +67,7 @@ class RegisterForm extends Component {
                     <input name="password" type="password" placeholder="Password" value={password} onChange={this.handleChange} />
                     <input name="email" type="email" placeholder="Email" value={email} onChange={this.handleChange} />
                     <input name="phoneNumber" type="tel" placeholder="Phone Number" value={phoneNumber} onChange={this.handleChange} />
+                    
                     <input name="submit" type="Submit" className="btn btn-secondary mb-3" />
                 </form>
             </div>
