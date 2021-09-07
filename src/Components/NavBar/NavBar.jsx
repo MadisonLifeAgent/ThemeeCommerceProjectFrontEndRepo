@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import Logout from '../Logout/Logout';
 
 // display navbar based on user login status
@@ -34,6 +33,9 @@ const NavBar = ({user}) => {
                         </dd>
                         <dd>
                             <Link to='/profile'>My Profile</Link>
+                        </dd>
+                        <dd>
+                            <Link to='/category'>Category</Link>
                         </dd>
                         <dd>
                             <Logout />

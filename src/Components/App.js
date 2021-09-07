@@ -14,9 +14,8 @@ import jwtDecode from 'jwt-decode';
 import RegisterForm from './Register/RegisterForm';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import ListProduct from './ListProduct/ListProduct';
-
-
-
+import CategoryList from './Category/CategoryList'
+ 
 
 // redo of app.jsx using classless components
 class App extends Component {
@@ -86,6 +85,7 @@ class App extends Component {
                     <Route path="/search/:searchTerm" render={props => <SearchResultsPage {...props} searchTerm={this.state.searchTerm} /> } />
                     <Route path='/register' component={RegisterForm} />
                     <Route path='/add' component={ListProduct} />
+                    <Route path='/category' component={CategoryList} />
 
                 </Switch>
 
