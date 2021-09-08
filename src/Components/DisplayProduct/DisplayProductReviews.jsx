@@ -15,14 +15,13 @@ const DisplayProductReviews = (props) => {
     const showReviews = reviews.map((item) => {
         const review = {
             reviewbody: item.reviewBody,
-            user: item.user.userName,
         };
 
         //how each review is displayed
  
             return (
                 <div>
-                    <dd>{review.user} says: "{review.reviewbody}"</dd>
+                    <dd>"{review.reviewbody}"</dd>
                 </div>
             )
 

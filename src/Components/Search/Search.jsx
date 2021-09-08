@@ -33,8 +33,7 @@ class Search extends Component {
       console.log(response.data);
       // set results
       this.setState({
-        products: response.data
-        
+        products: response.data,
       }) 
     }
     catch(ex){

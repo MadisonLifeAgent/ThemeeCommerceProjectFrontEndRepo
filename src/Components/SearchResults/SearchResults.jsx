@@ -3,13 +3,13 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 
 import UseGetProductDetails from "../../Hooks/UseGetProductDetails";
-import ProductPage from '../Pages/ProductPage';
 import AddReviewDisplay from '../AddReview/AddReviewDisplay';
 
 
 // component imports
 import DisplayProductReviews from '../DisplayProduct/DisplayProductReviews';
 import DisplaAverageRating from '../DisplayProduct/DisplayAverageRating'; 
+import { ListGroupItem } from 'react-bootstrap';
 
 const SearchResults = (props) => {
     const searchResults = props.searchResults;
@@ -28,16 +28,8 @@ const SearchResults = (props) => {
         return (
             <div>
                 <dl>
-                    <Link to={`/product/${product.productId}`} product={product}>
-                        <Route path='/product/:productId' render={props => <ProductPage {...props} UseGetProductDetails={UseGetProductDetails} productId={product.productId} />} />
-                        <dt>Product Name: {product.productName}</dt>
-                    </Link>
-                        <dd>Price:  {product.productPrice}</dd>
-                        <dd>Category: {product.categoryName}</dd>
-                        <dd>Description: {product.productDescription}</dd>
-                        <AddReviewDisplay product={product} />
                     <dt>Product Name: {product.productName}</dt>
-                        <dd>Price:  ${product.productPrice}</dd>
+                        <dd>Price:  {product.productPrice}</dd>
                         <dd>Category: {product.categoryName}</dd>
                         <dd>Description: {product.productDescription}</dd>
 
@@ -45,6 +37,8 @@ const SearchResults = (props) => {
                         <DisplaAverageRating productId={product.productId} />
                         <DisplayProductReviews productId={product.productId} />
                 </dl>
+                    {/* form to add a review/rating */}
+                    <AddReviewDisplay product={product} />
             </div>
         )
     })

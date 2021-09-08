@@ -1,5 +1,6 @@
 // react imports
 import React, { useState, useEffect } from 'react';
+import { ListGroup } from 'react-bootstrap';
 
 // components 
 import GetSearchResults from '../../Hooks/GetSearchResults';  // this is the hook to get searchresults
@@ -29,6 +30,7 @@ const SearchResultsPage = (props) => {
         return (
             <div>
                 <p>Results for "{props.searchTerm}"</p>
+                
                 {/* Call function to map over results otherwise it won't display properly */}
                 <SearchResults searchResults={searchResults} />
             </div>

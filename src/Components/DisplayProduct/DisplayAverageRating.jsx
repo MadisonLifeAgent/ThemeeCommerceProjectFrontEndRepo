@@ -11,13 +11,23 @@ const DisplaAverageRating = (props) => {
 
     const averageRating = UseGetAverageRating(productId);
 
-       //how each review is displayed
+
+    //how each review is displayed
     // return all the reviews here
-    return (
-        <div>
-        <dd>Average Rating: {averageRating}</dd>
-    </div>
-    )
+    if (averageRating <= 0) {
+        return (
+            <div>
+                <p>No Reviews/Ratings</p>
+            </div>
+        )
+    } else {
+        return (
+            <div>
+            <dd>Average Rating: {averageRating}</dd>
+        </div>
+        )
+    }
+
 }
 
 export default DisplaAverageRating;

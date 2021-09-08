@@ -50,7 +50,7 @@ class App extends Component {
 
         const handleChange = (event) => {
             this.setState({
-                categorySearch: event.target.value
+                searchTerm: event.target.value
             });
         }
 
@@ -66,6 +66,7 @@ class App extends Component {
                 {/* This is the Navigation bar which contains the Search Tool and calls the navbar componennt*/}
                 <nav>
                     <div>             
+                    <NavBar user={user}/>
                         {/* Search Bar */}
                         <form class="d-flex" >
                             <input class="form-control" id="searchbar" type="text" name="searchTerm" placeholder="Search" value={this.state.searchTerm} aria-label="Search" onChange={handleChange} />
@@ -75,7 +76,7 @@ class App extends Component {
                                     </button>
                                 </Link>
                         </form>
-                         {/* Search Bar */}
+                         {/* category Search Bar 
                          <form class="d-flex" >
                             <input class="form-control" id="categorySearchBar" type="text" name="categorySearch" placeholder="CategorySearch" value={this.state.categorySearch} aria-label="categorySearchBar" onChange={handleChange} />
                                 <Link to={`/categorySearch/${this.state.categorySearch}`}>
@@ -83,9 +84,7 @@ class App extends Component {
                                         Category Search
                                     </button>
                                 </Link>
-                        </form>
-                    <NavBar user={user}/>
-   
+                        </form> */}
                     </div>
                 </nav>
 
