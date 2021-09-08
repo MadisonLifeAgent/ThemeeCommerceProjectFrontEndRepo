@@ -17,6 +17,9 @@ import AddProduct from '../Components/AddProduct/AddProduct';
 import ProductPage from './Pages/ProductPage';
 import CategorySearch from './Pages/CategorySearch';
 
+// stylesheet
+import './App.css';
+
 
 
 
@@ -63,19 +66,23 @@ class App extends Component {
         return (
             <main>
             <div>
-                {/* This is the Navigation bar which contains the Search Tool and calls the navbar componennt*/}
-                <nav>
-                    <div>             
-                    <NavBar user={user}/>
-                        {/* Search Bar */}
-                        <form class="d-flex" >
-                            <input class="form-control" id="searchbar" type="text" name="searchTerm" placeholder="Search" value={this.state.searchTerm} aria-label="Search" onChange={handleChange} />
+                    {/* This is the Navigation bar which contains the Search Tool and calls the navbar componennt*/}
+                    <nav id="navbarOnly" class="bg bg-dark">
+
+                    <div class="input-group pt-3">
+                    <form class="input-group container-fluid" id="productSearchBar" >
+                            <input class="form-control " id="searchbar" type="text" name="searchTerm" placeholder="Search" value={this.state.searchTerm} aria-label="Search by Products" onChange={handleChange} />
+                            <div class="input-group-append">
                                 <Link to={`/search/${this.state.searchTerm}`}>
-                                    <button id="searchButton" type="submit" value="submit">
-                                        Search
+                                    <button class="btn btn-outline-secondary fg--search" id="searchButton" type="submit" value="submit">
+                                        <i class="fa fa-search"></i>
                                     </button>
                                 </Link>
+                                </div>           
+
                         </form>
+                        {/* Search Bar */}
+
                          {/* category Search Bar 
                          <form class="d-flex" >
                             <input class="form-control" id="categorySearchBar" type="text" name="categorySearch" placeholder="CategorySearch" value={this.state.categorySearch} aria-label="categorySearchBar" onChange={handleChange} />
@@ -86,6 +93,11 @@ class App extends Component {
                                 </Link>
                         </form> */}
                     </div>
+                    <Link to='/' class="nav-link active bg bg-dark">
+                            <dd id="homeLink" class="text-decoration none nav-link text-white">Shamazon.com</dd>
+                        </Link>
+                    <NavBar user={user}/>
+
                 </nav>
 
                 <Switch>
@@ -109,8 +121,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-{/* <Route path='/shoppingcart'  render={props => {
-    return <ShoppingCart {...props} user={this.state.user} />
-  }} /> */}

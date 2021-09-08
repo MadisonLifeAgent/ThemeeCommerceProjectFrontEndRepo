@@ -1,0 +1,22 @@
+/* this style sheet is the main style for the site */
+.root {
+    /*font styling */
+    font-family: 'PT Sans', sans-serif;
+    font-style: bold;
+
+}
+
+#searchButton {
+    background-color: #ff9900;
+    color: black;
+}
+
+#navbarOnly {
+}
+
+#homeLink {
+    border-radius: 15px;
+    border: white;
+    font-size: 30px;
+    font-weight: bold;
+}

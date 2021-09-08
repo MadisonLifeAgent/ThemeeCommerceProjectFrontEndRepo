@@ -1,0 +1,16 @@
+/* this style sheet is the main style for the site */
+#searchResultsPage {
+    /*font styling */
+    font-family: 'PT Sans', sans-serif;
+    font-style: bold;
+
+}
+
+.p {
+    font-size: 20px;
+}
+
+.button {
+    background-color: #ff9900;
+    color: black;
+}

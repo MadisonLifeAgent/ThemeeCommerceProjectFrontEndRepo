@@ -11,8 +11,6 @@ class ShoppingCart extends Component {
          }
     }
     
-    
-    
     //GET requires id(user) use stringconcat
     async getEntireCart(id){
         
@@ -45,7 +43,7 @@ class ShoppingCart extends Component {
     { 
         this.getEntireCart(this.state.user.id);
         return ( 
-            <div>
+            <div class="border border-dark p-2 m-2">
                 <h1> {this.state.user.username}'s Shopping Cart </h1>
                     <DisplayProduct productsInCart={this.state.productsInCart} deleteProduct={this.makeDeleteRequest} />
             </div>
@@ -54,36 +52,3 @@ class ShoppingCart extends Component {
 }
     
 export default ShoppingCart;
-    
-    
-    
-    
-    
-
-    
-    
-//POST requires id(user) and productId and quantity
-    // async addItemToCart(product){
-    //     try{
-    //         let response = await axios.post('https://localhost:44394/api/shoppingcart/add', product)
-    //     }
-    //     catch(ex){
-    //         console.log(ex)
-    //     }
-    // }
-    
-    //DELETE requires product id in url followed by id(user) use stringconcat
-    // async deleteItemFromCart(productIden, userIden){
-    //     try{
-    //         let response = await axios.delete(`https://localhost:44394/api/shoppingcart/${productIden}/${userIden}`)
-    //     }
-    //     catch(ex){
-    //         console.log(ex)
-    //     }
-    // }
-    
-    
-    
-    
-    
- 

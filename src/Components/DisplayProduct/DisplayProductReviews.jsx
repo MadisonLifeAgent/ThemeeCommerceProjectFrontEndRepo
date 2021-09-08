@@ -30,6 +30,7 @@ const DisplayProductReviews = (props) => {
     // return all the reviews here
     return (
         <div>
+            <p>Review(s):</p>
             {showReviews}
         </div>
     )

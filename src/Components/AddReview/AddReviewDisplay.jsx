@@ -4,6 +4,7 @@ import React, { useState }from "react";
 // component imports
 import GetCurrentUser from "../../Hooks/GetCurrentUser";
 import UseAddReview from "../../Hooks/UseAddReview";
+import './AddReviewDisplay.css';
 
 const AddReviewDisplay = (props) => {
     const reviewInfo = {
@@ -24,14 +25,14 @@ const AddReviewDisplay = (props) => {
     // display form to add rating and review
     return (
         <div>
-            <p>Rate/Review Product</p>
+            <p>Add a Review</p>
                 <form onSubmit={handleSubmit}>
                     <div class="form-group">
                         <input type="text" name="Rating" id="Rating" value={reviewInfo.Rating} size="50" placeholder="Rate from 1 to 5" onChange={(event) => event.target.value}/>
 
                         <input type="text" name="ReviewBody" id="ReviewBody" value={reviewInfo.ReviewBody} size="50" placeholder="Write your review here..." onChange={(event) => event.target.value}/>
 
-                        <input type="submit" value="Submit Review" />
+                        <input id="addReviewButton" type="submit" value="Submit Review" />
                     </div>
                 </form>                
         </div>

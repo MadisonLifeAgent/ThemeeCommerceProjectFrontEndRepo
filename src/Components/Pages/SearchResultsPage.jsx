@@ -5,6 +5,7 @@ import { ListGroup } from 'react-bootstrap';
 // components 
 import GetSearchResults from '../../Hooks/GetSearchResults';  // this is the hook to get searchresults
 import SearchResults from '../SearchResults/SearchResults';
+import './SearchResultsPage.css';
 
 // 
 const SearchResultsPage = (props) => {
@@ -28,7 +29,7 @@ const SearchResultsPage = (props) => {
     if (searchResults.length > 0) {
         console.log(searchResults); //show data was passed from query to component
         return (
-            <div>
+            <div id="searchResultsPage">
                 <p>Results for "{props.searchTerm}"</p>
                 
                 {/* Call function to map over results otherwise it won't display properly */}
@@ -39,7 +40,7 @@ const SearchResultsPage = (props) => {
     // display no results message
     else if (searchResults.length === 0) {
         return (
-            <div>
+            <div id="searchResultsPage">
                 <h3>Loading Results for "{props.searchTerm}"</h3>
             </div>
         )
@@ -47,7 +48,7 @@ const SearchResultsPage = (props) => {
     // display loading message if still loading results
     else {
         return (
-            <div>
+            <div id="searchResultsPage">
                 <h3>No Results for "{props.searchTerm}"</h3>
             </div>
         )
@@ -56,44 +57,3 @@ const SearchResultsPage = (props) => {
 }
 
 export default SearchResultsPage;
-
-/* PREVIOUS CODE saved jic
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            user: props.info.user,
-            products: props.info.products,
-        }
-    }
-
-            // get product ratings and reviews
-    async getProductRatingReview(productId) {
-        try {
-            let response = await axios.get(`https://localhost:44394/api/review/${productId}`);
-            console.log(response.data);
-            console.log("good api call");
-            return response.data;
-        } catch (ex) {
-            console.log("API call failed");
-        }
-    }
-
-    render(){
-        return (
-            <div>
-                {/* Show product details 
-                    {this.state.products.map((product) => {
-                            return(
-                                <div>
-                                    <dt>ProductName: {product.productName} </dt>
-                                    <dd>Sale Price: ${product.productPrice}</dd>
-                                </div>
-                            );
-                    })}
-            </div>
-        );
-    }
-}
- 
-export default DisplaySearchResults; */

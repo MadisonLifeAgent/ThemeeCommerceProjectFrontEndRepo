@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './DisplayProduct.css';
+
 const DisplayProduct = (props) => {
     const productsInCart = props.productsInCart;
 

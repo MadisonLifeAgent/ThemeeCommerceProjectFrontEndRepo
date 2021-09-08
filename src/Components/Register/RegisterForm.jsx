@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, {Component, Route, Link } from 'react';
 
 // component imports
+import './RegisterForm.css';
 
 class RegisterForm extends Component {
     constructor(props) {
@@ -58,17 +59,20 @@ class RegisterForm extends Component {
         const email = this.state.email;
         const phoneNumber = this.state.phoneNumber;
         return ( 
-            <div>
-                <h3>Register Here!</h3>
+            <div class="RegisterForm">
+                <h3>Register For an Account Here!</h3>
                 <form onSubmit={(event) => this.handleSubmit(event)}>
-                    <input name="firstName" type="text" placeholder="First Name" value={firstName} onChange={this.handleChange} />
-                    <input name="lastName" type="text" placeholder="Last Name" value={lastName} onChange={this.handleChange} />
-                    <input name="userName" type="text" placeholder="Username" value={userName} onChange={this.handleChange} />
-                    <input name="password" type="password" placeholder="Password" value={password} onChange={this.handleChange} />
-                    <input name="email" type="email" placeholder="Email" value={email} onChange={this.handleChange} />
-                    <input name="phoneNumber" type="tel" placeholder="Phone Number" value={phoneNumber} onChange={this.handleChange} />
+                    <input class="m-2" name="firstName" type="text" placeholder="First Name" value={firstName} onChange={this.handleChange} />
+                    <input class="m-2" name="lastName" type="text" placeholder="Last Name" value={lastName} onChange={this.handleChange} />
+                    <br />
+                    <input class="m-2" name="userName" type="text" placeholder="Username" value={userName} onChange={this.handleChange} />
+                    <input class="m-2" name="password" type="password" placeholder="Password" value={password} onChange={this.handleChange} />
+                    <br />
+                    <input class="m-2" name="email" type="email" placeholder="Email" value={email} onChange={this.handleChange} />
+                    <input class="m-2" name="phoneNumber" type="tel" placeholder="Phone Number" value={phoneNumber} onChange={this.handleChange} />
+                    <br />
                     
-                    <input name="submit" type="Submit" className="btn btn-secondary mb-3" />
+                    <input id="newUserButton" name="submit" type="Submit" value="Complete Registration" className="btn btn-secondary m-2" />
                 </form>
             </div>
          );

@@ -10,6 +10,7 @@ import AddReviewDisplay from '../AddReview/AddReviewDisplay';
 import DisplayProductReviews from '../DisplayProduct/DisplayProductReviews';
 import DisplaAverageRating from '../DisplayProduct/DisplayAverageRating'; 
 import { ListGroupItem } from 'react-bootstrap';
+import './SearchResults';
 
 const SearchResults = (props) => {
     const searchResults = props.searchResults;
@@ -26,10 +27,10 @@ const SearchResults = (props) => {
 
         // how each product is displayed 
         return (
-            <div>
+            <div class="border border-dark p-2 m-2">
                 <dl>
                     <dt>Product Name: {product.productName}</dt>
-                        <dd>Price:  {product.productPrice}</dd>
+                        <dd>Price:  ${product.productPrice}</dd>
                         <dd>Category: {product.categoryName}</dd>
                         <dd>Description: {product.productDescription}</dd>
 

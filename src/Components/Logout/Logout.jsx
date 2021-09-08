@@ -5,7 +5,7 @@ const Logout = () => {
         window.location.href = '/';
     }
     return ( 
-        <button onClick={handleClick}>Logout</button>
+            <button class="nav-link active" onClick={handleClick}>Logout</button>
         );
 }
         
