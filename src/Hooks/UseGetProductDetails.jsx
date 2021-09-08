@@ -7,8 +7,8 @@ const UseGetProductDetails = (productId) => {
     const [productDetails, setProductDetails] = useState({});
 
     // get product details
-    async function getproductDetails(productId) {
-        let response = await axios.get(`https://localhost:44394/api/product/${productId}`);
+    async function getproductDetails(pId) {
+        let {response} = await axios.get(`https://localhost:44394/api/product/${pId}`);
         
         if (response.data) {
             console.log("product details");
@@ -22,10 +22,10 @@ const UseGetProductDetails = (productId) => {
     }
     // try to get the product details as soon as called
     useEffect(() => {
-        getproductDetails(productId)
+        getproductDetails(productId);
     },)
 
-    return {productDetails};
+    return [productDetails];
 }
 
 export default UseGetProductDetails;

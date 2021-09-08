@@ -13,8 +13,9 @@ import DecodeToken from '../Hooks/DecodeToken';
 import jwtDecode from 'jwt-decode';
 import RegisterForm from './Register/RegisterForm';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
-import ListProduct from './ListProduct/ListProduct';
+import AddProduct from '../Components/AddProduct/AddProduct';
 import ProductPage from './Pages/ProductPage';
+import AddReviewDisplay from './AddReview/AddReviewDisplay';
 
 
 
@@ -83,12 +84,13 @@ class App extends Component {
                     <Route path='/login' component={LoginPage} />
                     <Route path='profile' render={props => { return <ProfileScreenPage {...props} user={user}/> }} />
                     <Route path='/shoppingcart'  render={props => {
-                  return <ShoppingCart {...props} user={this.state.user} />
+                  return <ShoppingCart {...props} user={user} />
                 }} />
                     <Route path="/search/:searchTerm" render={props => <SearchResultsPage {...props} searchTerm={this.state.searchTerm} /> } />
                     <Route path='/register' component={RegisterForm} />
-                    <Route path='/add' component={ListProduct} />
+                    <Route path='/add' component={AddProduct} />
                     <Route path='/product/:productId' component={ProductPage} user={user}/>
+                    <Route path='/addreview' component={AddReviewDisplay} user={user} />
 
                 </Switch>
 
@@ -99,3 +101,8 @@ class App extends Component {
 }
 
 export default App;
+
+
+{/* <Route path='/shoppingcart'  render={props => {
+    return <ShoppingCart {...props} user={this.state.user} />
+  }} /> */}

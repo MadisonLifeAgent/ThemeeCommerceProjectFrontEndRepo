@@ -12,8 +12,6 @@ const LoginPage = (props) => {
     const [username, setUsername] = useState({});
     const [password, setPassword] = useState({});
 
-
-
     // gets the login form info once submitted
     const loginUser = (username, password) => {
         setUsername(username);

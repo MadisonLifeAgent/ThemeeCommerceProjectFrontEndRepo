@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom';
 
 import UseGetProductDetails from "../../Hooks/UseGetProductDetails";
 import ProductPage from '../Pages/ProductPage';
+import AddReviewDisplay from '../AddReview/AddReviewDisplay';
 
 
 const SearchResults = (props) => {
@@ -23,12 +24,13 @@ const SearchResults = (props) => {
             <div>
                 <dl>
                     <Link to={`/product/${product.productId}`} product={product}>
-                        <Route path='/product/:productId' render={props => <ProductPage {...props} productId={product.productId} />} />
+                        <Route path='/product/:productId' render={props => <ProductPage {...props} UseGetProductDetails={UseGetProductDetails} productId={product.productId} />} />
                         <dt>Product Name: {product.productName}</dt>
                     </Link>
                         <dd>Price:  {product.productPrice}</dd>
                         <dd>Category: {product.categoryName}</dd>
                         <dd>Description: {product.productDescription}</dd>
+                        <AddReviewDisplay product={product} />
                 </dl>
             </div>
         )

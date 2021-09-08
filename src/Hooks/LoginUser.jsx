@@ -24,7 +24,6 @@ const LoginUser = (username, password) => {
             console.log("good login");
             console.log(response.data.token);
             window.location = '/profile';
-
             return localStorage;
         } else {
             console.log("bad api call");

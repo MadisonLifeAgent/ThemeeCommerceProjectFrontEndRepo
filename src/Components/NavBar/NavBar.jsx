@@ -27,7 +27,7 @@ const NavBar = ({user}) => {
                 {user &&
                     <React.Fragment>
                         <dd>
-                            <Link to='/add'>List Product</Link>
+                            <Link to='/add'>Add Product</Link>
                         </dd>
                         <dd>
                             <Link to='/shoppingcart'>Shopping Cart</Link>
@@ -47,8 +47,3 @@ const NavBar = ({user}) => {
 }
 
 export default NavBar;
-
-
-{/* <dd>
-<Link to='/search'>SearchPage</Link>
-</dd> */}
