@@ -15,8 +15,7 @@ import RegisterForm from './Register/RegisterForm';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import AddProduct from '../Components/AddProduct/AddProduct';
 import ProductPage from './Pages/ProductPage';
-import AddReviewDisplay from './AddReview/AddReviewDisplay';
-
+import CategorySearch from './Pages/CategorySearch';
 
 
 
@@ -27,6 +26,7 @@ class App extends Component {
         super(props);
         this.state = {
             searchTerm: '',
+            categorySearch: '',
           }
       }
     
@@ -75,6 +75,15 @@ class App extends Component {
                                     </button>
                                 </Link>
                         </form>
+                         {/* Search Bar */}
+                         <form class="d-flex" >
+                            <input class="form-control" id="categorySearchBar" type="text" name="categorySearch" placeholder="CategorySearch" value={this.state.categorySearch} aria-label="Search" onChange={handleChange} />
+                                <Link to={`/categorySearch/${this.state.categorySearch}`}>
+                                    <button id="searchButton" type="submit" value="submit">
+                                        Category Search
+                                    </button>
+                                </Link>
+                        </form>
                     <NavBar user={user}/>
    
                     </div>
@@ -90,7 +99,7 @@ class App extends Component {
                     <Route path='/register' component={RegisterForm} />
                     <Route path='/add' component={AddProduct} />
                     <Route path='/product/:productId' component={ProductPage} user={user}/>
-                    <Route path='/addreview' component={AddReviewDisplay} user={user} />
+                    <Route path='/CategorySearch/:categorySearch' render={props => <CategorySearch {...props} categorySearch={this.state.categorySearch} /> } />'
 
                 </Switch>
 
