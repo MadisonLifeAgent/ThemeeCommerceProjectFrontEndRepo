@@ -50,7 +50,7 @@ class App extends Component {
 
         const handleChange = (event) => {
             this.setState({
-                searchTerm: event.target.value
+                categorySearch: event.target.value
             });
         }
 
@@ -77,7 +77,7 @@ class App extends Component {
                         </form>
                          {/* Search Bar */}
                          <form class="d-flex" >
-                            <input class="form-control" id="categorySearchBar" type="text" name="categorySearch" placeholder="CategorySearch" value={this.state.categorySearch} aria-label="Search" onChange={handleChange} />
+                            <input class="form-control" id="categorySearchBar" type="text" name="categorySearch" placeholder="CategorySearch" value={this.state.categorySearch} aria-label="categorySearchBar" onChange={handleChange} />
                                 <Link to={`/categorySearch/${this.state.categorySearch}`}>
                                     <button id="searchButton" type="submit" value="submit">
                                         Category Search

@@ -1,3 +1,4 @@
+// react imports
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 
@@ -5,6 +6,10 @@ import UseGetProductDetails from "../../Hooks/UseGetProductDetails";
 import ProductPage from '../Pages/ProductPage';
 import AddReviewDisplay from '../AddReview/AddReviewDisplay';
 
+
+// component imports
+import DisplayProductReviews from '../DisplayProduct/DisplayProductReviews';
+import DisplaAverageRating from '../DisplayProduct/DisplayAverageRating'; 
 
 const SearchResults = (props) => {
     const searchResults = props.searchResults;
@@ -18,7 +23,7 @@ const SearchResults = (props) => {
             productDescription: item.productDescription,
             categoryName: item.category.categoryName,
         };
-        
+
         // how each product is displayed 
         return (
             <div>
@@ -31,6 +36,14 @@ const SearchResults = (props) => {
                         <dd>Category: {product.categoryName}</dd>
                         <dd>Description: {product.productDescription}</dd>
                         <AddReviewDisplay product={product} />
+                    <dt>Product Name: {product.productName}</dt>
+                        <dd>Price:  ${product.productPrice}</dd>
+                        <dd>Category: {product.categoryName}</dd>
+                        <dd>Description: {product.productDescription}</dd>
+
+                        {/* Get a product's average rating and reviews and displays them here*/}
+                        <DisplaAverageRating productId={product.productId} />
+                        <DisplayProductReviews productId={product.productId} />
                 </dl>
             </div>
         )
